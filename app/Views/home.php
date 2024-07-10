@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <head>
+    <title>Darma Karya Mandiri</title>
     <!-- <link rel="stylesheet"  href="<?php echo base_url();?>public/bootstrap.min.css"/> -->
     <!-- <script src="<?php echo base_url();?>public/bootstrap.min.js"></script> -->
     <script src="<?php echo base_url();?>public/tailwind.js"></script>

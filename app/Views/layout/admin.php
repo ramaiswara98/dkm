@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-    <title>Darma Karya Mandiri - Admin</title>
+    <title>Darma Karya Mandiri</title>
     <style>
         .dropdown.bootstrap-select .btn.dropdown-toggle {
             background-color: white !important;

@@ -60,29 +60,34 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="<?php echo base_url(); ?>tambah-truck">
+                <form method="POST" action="<?php echo base_url(); ?>tambah-truck" id="tambah-truck">
                     <?= csrf_field(); ?>
                     <div class="flex flex-col gap-2">
                         <div class="flex flex-col w-full">
                             <p>Plat Nomor</p>
-                            <input type="text" name="plat" placeholder="Masukkan Plat nomor truck" class="w-full" />
+                            <input type="text" name="plat" placeholder="Masukkan Plat nomor truck" class="w-full" id="plat"/>
+                            <p id="err-plat" class=" hidden text-sm text-red-500">Masukkan Plat Nomor Yang Benar, Harus Lebih Dari 3 Karakter</p>
                         </div>
                         <div class="flex flex-col w-full">
                             <p>Nama Supir</p>
-                            <input type="text" name="supir" placeholder="Masukkan Nama Supir" class="w-full" />
+                            <input type="text" name="supir" placeholder="Masukkan Nama Supir" class="w-full" id="supir"/>
+                            <p id="err-supir" class="hidden text-sm text-red-500">Masukkan Nama Supir Yang Benar, Harus Lebih Dari 3 Karakter</p>
                         </div>
                         <div class="flex flex-col w-full">
                             <p>No Hp</p>
-                            <input type="text" name="no_hp" placeholder="Masukkan Nomor Handphone" class="w-full" />
+                            <input type="text" name="no_hp" placeholder="Masukkan Nomor Handphone" class="w-full" id="no_hp"/>
+                            <p id="err-hp" class="hidden text-sm text-red-500">Masukkan Nomor Handphone Yang Benasr, Harus Lebih Dari 10 Karakter</p>
                         </div>
                         <div class="flex flex-col w-full">
                             <p>Garasi</p>
-                            <input type="text" name="garasi" placeholder="Masukkan Garasi" class="w-full" />
+                            <input type="text" name="garasi" placeholder="Masukkan Garasi" class="w-full" id="garasi"/>
+                            <p id="err-garasi" class="hidden text-sm text-red-500">Masukkan Garasi Yang Benar, Harus Lebih Dari 3 Karakter</p>
+
                         </div>
                     </div>
                     <div class="mt-2 flex flex-row justify-end gap-2">
                         <button class="bgc-secondary text-white px-4 py-2 cursor-pointer" data-dismiss="modal">Batal</button>
-                        <button class="bgc-primary textc-secondary px-4 py-2 cursor-pointer">Tambah Truck</button>
+                        <button class="bgc-primary textc-secondary px-4 py-2 cursor-pointer" type="button" onclick="checkTambah()">Tambah Truck</button>
                     </div>
                 </form>
             </div>
@@ -134,6 +139,40 @@
         </div>
     </div>
 </div>
+<script>
+    function checkTambah(){
+        var platIn = document.getElementById('plat');
+        var supirIn = document.getElementById('supir');
+        var hpIn = document.getElementById('no_hp');
+        var garasiIn = document.getElementById('garasi');
+        if(platIn.value.length < 3){
+            var errPlat = document.getElementById('err-plat');
+            errPlat.style.display = "block";
+            platIn.focus();
+        }else{
+            if(supirIn.value.length < 3){
+                var errSupir = document.getElementById('err-supir');
+                errSupir.style.display = "block";
+                supirIn.focus();
+            }else{
+                if(hpIn.value.length<10){
+                    var errHp = document.getElementById('err-hp');
+                    errHp.style.display = "block";
+                    hpIn.focus();
+                }else{
+                    if(garasiIn.value.length < 3){
+                        var errGarasi = document.getElementById('err-garasi');
+                        errGarasi.style.display = "block";
+                        garasiIn.focus();
+                    }else{
+                        var formTambah= document.getElementById('tambah-truck');
+                        formTambah.submit();
+                    }
+                }
+            }
+        }
+    }
+</script>
 <script>
     var alerts = document.getElementById('alert')
         setTimeout(function() {

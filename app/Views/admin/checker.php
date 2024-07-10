@@ -54,11 +54,13 @@
         <input type="hidden" name="waktu" id="waktu" />
         <div  class="flex flex-col w-full">
         <p>Nomor Antrian</p>
-        <input name="antrian" type="text" placeholder="Masukkan Nomor Antrian">
+        <input name="antrian" type="text" placeholder="Masukkan Nomor Antrian" id="antrian">
+        <p class="hidden text-sm text-red-500" id="err-antrian">Masukkan Nomor Antrian</p>
         </div>
         <div  class="flex flex-col w-full mt-4">
-        <p>Timbangan</p>
-        <input name="timbangan" type="number" placeholder="Masukkan Berat Timbangan">
+        <p>Timbangan (Kg)</p>
+        <input name="timbangan" type="number" placeholder="Masukkan Berat Timbangan" id="timbangan">
+        <p class="hidden text-sm text-red-500" id="err-timbangan">Masukkan Timbangan</p>
         </div>
         <button class="bgc-primary textc-secondary px-4 py-2 mt-4" type="button" onclick="check()">Simpan</button>
         </form>
@@ -82,11 +84,24 @@
     }
 
     function check(){
-        var waktu = document.getElementById("waktu");
-        var sekarang = getCurrentFormattedDate();
-        var c_form = document.getElementById('checker-form');
-        waktu.value = sekarang;
-        c_form.submit();
+        var antrianIn = document.getElementById('antrian');
+        var timbangan = document.getElementById('timbangan');
+        if(antrianIn.value.length < 1){
+            document.getElementById('err-antrian').style.display = "block";
+            antrianIn.focus();
+        }else{
+            if(timbangan.value.length < 1){
+                document.getElementById('err-timbangan').style.display = "block";
+                timbangan.focus();
+            }else{
+                var waktu = document.getElementById("waktu");
+                var sekarang = getCurrentFormattedDate();
+                var c_form = document.getElementById('checker-form');
+                waktu.value = sekarang;
+                c_form.submit();
+            }
+        }
+        
     }
 
     function getCurrentFormattedDate() {
