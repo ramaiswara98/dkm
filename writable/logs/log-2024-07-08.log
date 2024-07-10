@@ -1,0 +1,20 @@
+CRITICAL - 2024-07-08 08:25:55 --> ErrorException: Attempt to read property "data_select" on array
+[Method: GET, Route: get-rekap-data-by-id/1575]
+in APPPATH/Controllers/Admin.php on line 160.
+ 1 APPPATH/Controllers/Admin.php(160): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "data_select" on array', '/Applications/MAMP/htdocs/truck/app/Controllers/Admin.php', 160)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Admin->getRekapData('1575')
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-08 08:26:26 --> ErrorException: Attempt to read property "data_select" on array
+[Method: GET, Route: get-rekap-data-by-id/1575]
+in APPPATH/Controllers/Admin.php on line 160.
+ 1 APPPATH/Controllers/Admin.php(160): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "data_select" on array', '/Applications/MAMP/htdocs/truck/app/Controllers/Admin.php', 160)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Admin->getRekapData('1575')
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

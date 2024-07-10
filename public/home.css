@@ -1,0 +1,53 @@
+body{
+    background-color: #FBFDF0;
+    overflow-y: hidden !important;
+}
+@media only screen and (max-width: 750px) {
+    body {
+        overflow-y: scroll !important;
+        height: auto !important;
+    }
+}
+button:focus {
+    outline: none !important;
+}
+
+.dropdown-toggle {
+    border: solid 1px black !important;
+}
+.input-form{
+    border: solid 2px #132435;
+    padding: 5px;
+    border-radius: 0.5rem;
+}
+
+.bgc-primary{
+    background-color: #FBE050;
+}
+
+.bgc-red{
+    background-color: #FBE050;
+}
+
+.bgc-secondary{
+    background-color: #132535;
+}
+.bgc-alternate{
+    background-color: #FBFDF0;
+}
+
+.bgc-bluess{
+    background-color: #1D2534;
+}
+
+.textc-primary{
+    color: #FBE050;
+}
+
+.textc-secondary{
+    color: #132535;
+}
+
+.textc-alternate{
+    color: #FBFDF0;
+}
