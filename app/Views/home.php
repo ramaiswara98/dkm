@@ -5,17 +5,18 @@
     <!-- <script src="<?php echo base_url();?>public/bootstrap.min.js"></script> -->
     <script src="<?php echo base_url();?>public/tailwind.js"></script>
     <link rel="stylesheet"  href="<?php echo base_url();?>public/home.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 </head>
 <body>
     <div class="container">
-    <div class="flex flex-col sm:flex-row sm:justify-around items-center h-screen">
+    <div class="flex flex-col sm:flex-row gap-9 sm:justify-around items-center h-screen home-mobile">
         <div class="col">
-            <img src="<?php echo base_url();?>public/images/truck.jpeg" width="300px"/>
-            <div class=" mb-5 flex items-center justify-center">
+            <img src="<?php echo base_url('/public/images/logo.jpeg');?>" width="300px"/>
+            <!-- <div class=" mb-5 flex items-center justify-center">
                     <h1 class="textc-primary text-2xl font-bold">Darma </h1>
                     <h1 class="textc-secondary text-2xl font-bold ml-1"> Karya Mandiri</h1>
-                </div>
+                </div> -->
         </div>
         <div class="col">
             <div class=" w-80 sm:w-96 bg-white p-8 flex flex-col justify-center items-center">

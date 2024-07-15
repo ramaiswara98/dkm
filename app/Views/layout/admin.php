@@ -2,6 +2,7 @@
 
 <head>
     <title>Darma Karya Mandiri</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
         .dropdown.bootstrap-select .btn.dropdown-toggle {
             background-color: white !important;
@@ -51,7 +52,10 @@
             <div class="hidden bgc-secondary py-8 px-12 sm:mb-32 w-full h-screen sm:w-96 sm:flex flex-col " id="main-menu">
             <div class="block sm:hidden">
                 <p class="text-white text-right cursor-pointer text-xl" onclick="closeMenu()"><i class="fa-solid fa-x"></i></p>
-            </div>    
+            </div>
+            <div class=" flex justify-center align-middle">
+            <img src="<?php echo base_url('/public/images/logo.jpeg');?>" class=" w-20 h-20"/>  
+            </div>  
             <div class=" mb-5 flex items-center justify-center">
                     <h1 class="textc-primary text-2xl font-bold">Darma </h1>
                     <h1 class="text-white text-2xl font-bold ml-1"> Karya Mandiri</h1>
@@ -212,6 +216,7 @@
      <script>
         function openMenu(){
             var mainMenu = document.getElementById('main-menu');
+            console.log("Makan");
             mainMenu.style.display = "flex";
         }
      </script>

@@ -37,6 +37,8 @@ $routes->group('', ['filter' => 'authCheck'], function($routes){
 
     $routes->get('/get-truck','DataTable::truck');
     $routes->get('/get-surat','DataTable::surat');
+    $routes->get('/get-surat-checker','DataTable::suratChecker');
+    // $routes->get('/get-surat/(:num)','DataTable::surat');
     $routes->get('/get-users','DataTable::users');
     $routes->get('/get-truck-by-id/(:num)','Admin::getTruckById/$1');
 

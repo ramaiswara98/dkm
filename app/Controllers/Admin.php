@@ -135,7 +135,7 @@ class Admin extends BaseController
         }
         $data['surat'] = $surat;
         $data['page'] = "checker";
-        return view('admin/checker',$data);
+        return view('admin/chekcker2',$data);
     }
 
     public function updatesurat(){

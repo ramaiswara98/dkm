@@ -88,6 +88,51 @@ class DataTable extends BaseController
         return json_encode($record);
     }
 
+    public function suratChecker()
+    {   
+        $db = db_connect();
+        $searchValue = $this->request->getVar('search')['value'] ?? '';
+        $start = $this->request->getVar('start') ?? 0;  // Default to 0 if not set
+        $length = $this->request->getVar('length') ?? 10;  // Default to 10 if not set
+        // Initialize the WHERE clause
+        $whereClause = "";
+        if (!empty($searchValue)) {
+            // Ensure proper escaping and add wildcards for the LIKE comparison
+            $searchValue = $db->escapeLikeString($searchValue);
+            $whereClause = " WHERE truck.plat LIKE '%" . $searchValue . "%'" .
+                        " OR truck.supir LIKE '%" . $searchValue . "%'" .
+                        " OR surat.id LIKE '%" . $searchValue . "%'";
+        }
+        $baseQuery = "SELECT surat.id as surat_id, surat.*,truck.* FROM surat INNER JOIN truck ON truck.id = surat.truck_id".$whereClause." LIMIT $start, $length";
+        $query = $db->query($baseQuery);
+        $surat = $query->getResult();
+        $suratList = array();
+        $num = 0;
+        $base_url = base_url();
+        foreach($surat as $sr){
+            $num+=1;
+            $statusButton = ($sr->status == "dalam perjalanan") ?
+            "<td><button data-toggle='modal' data-target='#checkerModal' onClick='getId($sr->surat_id)' class='mr-1 w-12 h-10 bg-gray-500 text-white'><icon class='fa fa-check-to-slot'></icon></button><button data-toggle='modal' onclick='getRekapDataById($sr->surat_id)' data-target='#rekapModal' class='bgc-primary w-12 h-10 textc-secondary mr-2'><icon class='fa fa-eye'></icon></td>" :
+            "<td><button disabled data-toggle='modal' data-target='#checkerModal' onClick='getId($sr->surat_id)' class='mr-1 w-12 h-10 bg-green-500 text-white'><icon class='fa fa-check-to-slot'></icon></button><button data-toggle='modal' onclick='getRekapDataById($sr->surat_id)' data-target='#rekapModal' class='bgc-primary w-12 h-10 textc-secondary mr-2'><icon class='fa fa-eye'></icon></td>";
+
+            $suratList[] = array(
+                    $sr->surat_id,
+                    $sr->plat,
+                    $sr->supir,
+                    // $sr->tujuan,
+                    $this->dateFormatter($sr->jam_tanggal),
+                    $this->checkstatus($sr->status),
+                    $statusButton
+                );
+        }
+        $record['data'] = $suratList;
+        $record['recordsTotal'] = count($suratList);
+        $record['recordsFiltered'] = $this->countAllRecordsSurat();
+        return json_encode($record);
+    }
+
+    
+
     public function checkstatus($status){
         if($status == "dalam perjalanan"){
             return "<i class='fa-solid fa-circle-dot text-yellow-500'></i> ".ucwords($status);

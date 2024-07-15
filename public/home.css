@@ -2,10 +2,14 @@ body{
     background-color: #FBFDF0;
     overflow-y: hidden !important;
 }
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 640px) {
     body {
         overflow-y: scroll !important;
         height: auto !important;
+    }
+
+    .home-mobile{
+        flex-direction: column !important;
     }
 }
 button:focus {
